@@ -40,6 +40,7 @@ public class FalconMain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 		if (my_num == 0) {
 			num_falcons = FalconUnity.getNumFalcons();
 			FalconUnity.Update();

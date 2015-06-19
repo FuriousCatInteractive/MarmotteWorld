@@ -26,7 +26,7 @@ public class PrenableObject : MonoBehaviour {
     void Awake()
     {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
-        rigidbody.useGravity = false;
+        //rigidbody.useGravity = false;
         m_Collider = GetComponent<Collider>();
         m_Collider.isTrigger = true;
         Transform playerCursor = cursor;
@@ -36,7 +36,7 @@ public class PrenableObject : MonoBehaviour {
 
     void FixedUpdate()
     {
-
+       
 
         if (!m_IsCursorInObject) return;
 
