@@ -39,7 +39,7 @@ public class SphereManipulator : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		if (! haveReceivedTipPosition ) {
 			Vector3 posTip2;

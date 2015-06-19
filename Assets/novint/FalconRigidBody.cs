@@ -47,7 +47,6 @@ public class FalconRigidBody : MonoBehaviour {
 		Vector3 pos;
 		Quaternion orient;
 		
-		
 		bool res = FalconUnity.getDynamicShapePose(bodyId, out pos, out orient);
 		if(!res){
 //			Debug.Log("Error getting object pose");
