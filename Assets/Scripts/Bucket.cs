@@ -23,4 +23,12 @@ public class Bucket : MonoBehaviour {
         tmp.enabled = true;
         tmp.GetComponentInParent<MeshRenderer>().enabled = true;
     }
+
+    public void EmptyBucket()
+    {
+        isFull = false;
+        var tmp = gameObject.GetComponentInChildren<UnityStandardAssets.Water.Water>();
+        tmp.enabled = false;
+        tmp.GetComponentInParent<MeshRenderer>().enabled = false;
+    }
 }
