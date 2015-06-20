@@ -35,7 +35,6 @@ public class BinaryDetector : MonoBehaviour {
         else
         {
             print("Test");
-        }
-          
+        }  
     }
 }
