@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Text;
+
+
 public class FalconMain : MonoBehaviour {
 	public int num_falcons;
 	private int my_num;
@@ -38,10 +40,14 @@ public class FalconMain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 		if (my_num == 0) {
 			num_falcons = FalconUnity.getNumFalcons();
 			FalconUnity.Update();
 		}
+
+		//Vector3 force = new Vector3 (9.10f, 0, 0);
+		//FalconUnity.applyForce (0, force, 1);
 	}
 	
 	void Start () {
