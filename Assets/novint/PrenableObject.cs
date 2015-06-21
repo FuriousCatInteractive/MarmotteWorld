@@ -2,7 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PrenableObject : MonoBehaviour {
+public class PrenableObject : MonoBehaviour 
+{
 
     public static Transform cursor
     {

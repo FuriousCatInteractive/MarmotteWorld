@@ -24,11 +24,14 @@ public class PrenableObjectOld : MonoBehaviour
 
     public AnimationCurve curve;
     public float maxForce = 8.0f;
+    public bool isBucket = false;
 
     //public Collider triggerCollider;
     private Collider m_Collider;
     private bool m_IsCursorInObject = false;
     private Vector3 m_Gravity;
+    private Vector3 m_GravityFull;
+   
 
     void Awake()
     {
@@ -38,7 +41,12 @@ public class PrenableObjectOld : MonoBehaviour
         //  m_Collider.isTrigger = true;
         Transform playerCursor = cursor;
 
-        m_Gravity = new Vector3(0, -0.75f * rigidbody.mass, 0);
+        m_Gravity = new Vector3(0, -1.0F * rigidbody.mass, 0);
+
+        /*if (isBucket)
+        {
+            m_GravityFull.y = m_Gravity.y - 4.0F;
+        }*/
     }
 
     void FixedUpdate()
@@ -46,11 +54,11 @@ public class PrenableObjectOld : MonoBehaviour
 
         // m_IsCursorInObject = GetComponent<Collider>().bounds.Contains(m_Cursor.position);
 
-
+        GetComponent<Rigidbody>().useGravity = true;
         if (!m_IsCursorInObject) return;
 
 
-
+       
         //get buttons states
         bool[] buttons;
         FalconUnity.getFalconButtonStates(0, out buttons);
@@ -58,13 +66,24 @@ public class PrenableObjectOld : MonoBehaviour
         //boutton du milieu => id 0
         if (buttons[0])
         {
-            this.transform.position = m_Cursor.position;
-            FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime * 2);
 
+            Vector3 pos = m_Cursor.position;
+            //Debug.Log("avant " + m_Gravity.y);
+            if (isBucket)
+            {
+                pos.y -= 0.4F;//todo scale 
+               // if (GetComponent<Bucket>().isFull)
+                  //  m_Gravity = m_GravityFull;
+            }
+            //Debug.Log("qpres " + m_Gravity.y);
+            this.transform.position = pos;
+           
+            FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime * 2);
+            GetComponent<Rigidbody>().useGravity = false;
+            return;
 
         }
-        else if (!buttons[0])
-        {
+
             //Apply force
 
             Vector3 center = m_Collider.bounds.center;
@@ -78,9 +97,9 @@ public class PrenableObjectOld : MonoBehaviour
 
             Vector3 forceVector = direction.normalized * -force;
             //Debug.DrawLine(cursor.position, cursor.position + forceVector);
-            FalconUnity.applyForce(0, forceVector, Time.fixedDeltaTime / 10);
+            FalconUnity.applyForce(0, forceVector, Time.fixedDeltaTime / 2);
 
-        }
+             
 
 
 
