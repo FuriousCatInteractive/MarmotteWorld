@@ -28,7 +28,7 @@ public class PrenableObject : MonoBehaviour {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         //rigidbody.useGravity = false;
         m_Collider = GetComponent<Collider>();
-        m_Collider.isTrigger = true;
+      //  m_Collider.isTrigger = true;
         Transform playerCursor = cursor;
         
         m_Gravity = new Vector3(0, -0.75f * rigidbody.mass, 0);
@@ -40,6 +40,21 @@ public class PrenableObject : MonoBehaviour {
 
         if (!m_IsCursorInObject) return;
 
+        
+        //get buttons states
+        bool[] buttons;
+        FalconUnity.getFalconButtonStates(0, out buttons);
+
+        //boutton du milieu => id 0
+        if (buttons[0])
+        {
+            this.transform.position = m_Cursor.position;
+            FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime * 2);
+            GetComponent<Rigidbody>().useGravity = false;
+            return;
+        }
+        GetComponent<Rigidbody>().useGravity = true;
+
         //Apply force
 
         Vector3 center = m_Collider.bounds.center;
@@ -49,22 +64,12 @@ public class PrenableObject : MonoBehaviour {
 
         float t = 1.0f - (direction.magnitude / (hit.point - center).magnitude);
         float force = maxForce * curve.Evaluate(t);
-        Debug.Log("f(" + t + ")= " + force);
+        //Debug.Log("f(" + t + ")= " + force);
 
         Vector3 forceVector = direction.normalized * -force;
         //Debug.DrawLine(cursor.position, cursor.position + forceVector);
         FalconUnity.applyForce(0, forceVector, Time.fixedDeltaTime);
 
-        //get buttons states
-        bool[] buttons;
-        FalconUnity.getFalconButtonStates(0, out buttons);
-
-        //boutton du milieu => id 0
-        if (buttons[0])
-        {
-            this.transform.position = m_Cursor.position;
-            FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime* 2);
-        }
 
     
     }
@@ -81,4 +86,6 @@ public class PrenableObject : MonoBehaviour {
             m_IsCursorInObject = false;
     }
 
+
 }
+
