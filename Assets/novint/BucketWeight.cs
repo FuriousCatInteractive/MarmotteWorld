@@ -18,7 +18,7 @@ public class BucketWeight : MonoBehaviour {
         bucketScript = GetComponentInChildren<Bucket>();
         prenableScript = GetComponent<PrenableObject>();
         size = transform.localScale.y;
-        gravityEmpty = new Vector3(0, -3.0F * size, 0);
+        gravityEmpty = new Vector3(0, -2.2F * size, 0);
         gravityFull  = new Vector3(0, -7.0F * size, 0);
 
         Debug.Log(name + "--> " + prenableScript.m_Gravity);
@@ -32,15 +32,14 @@ public class BucketWeight : MonoBehaviour {
 
     public void FixedUpdate()
     {
-        Debug.Log("avant " + prenableScript.m_Gravity.y);
-
-
+        //Debug.Log("avant " + prenableScript.m_Gravity.y);
+        
         if (bucketScript.isFull)
             prenableScript.m_Gravity = gravityFull;
         else
             prenableScript.m_Gravity = gravityEmpty;
 
-        Debug.Log("qpres " + prenableScript.m_Gravity.y);
+        //Debug.Log("qpres " + prenableScript.m_Gravity.y);
        
 
     }
