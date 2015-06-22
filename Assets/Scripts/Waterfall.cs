@@ -17,7 +17,9 @@ public class Waterfall : MonoBehaviour {
     {
         if(other.CompareTag("bucket"))
         {
-            other.GetComponent<Bucket>().FillBucket();
+            print("pipi");
+            other.GetComponentInChildren<Bucket>().FillBucket();
+            //other.GetComponent<Bucket>().FillBucket();
         }
         else
         {

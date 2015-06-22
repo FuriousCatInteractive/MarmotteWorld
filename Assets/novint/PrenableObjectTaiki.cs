@@ -8,7 +8,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PrenableObjectOld : MonoBehaviour
+public class PrenableObjectTaiki : MonoBehaviour
 {
 
     public static Transform cursor
@@ -20,37 +20,51 @@ public class PrenableObjectOld : MonoBehaviour
         }
     }
 
-    public static Transform m_Cursor = null;
+    private static Transform m_Cursor = null;
 
     public AnimationCurve curve;
     public float maxForce = 8.0f;
-    public bool taken;
+    public bool isBucket = false;
 
+    //public Collider triggerCollider;
     private Collider m_Collider;
     private bool m_IsCursorInObject = false;
-    public Vector3 m_Gravity;
-    private Rigidbody rigidbody;
-
+    private Vector3 m_Gravity;
+    private Vector3 m_GravityFull;
+    private Rigidbody parentRigidbody;
+    private Transform parentTransform;
    
 
     void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
         //rigidbody.useGravity = false;
         m_Collider = GetComponent<Collider>();
         //  m_Collider.isTrigger = true;
         Transform playerCursor = cursor;
 
-        m_Gravity = new Vector3(0, -1.0F * rigidbody.mass, 0);          
+        m_Gravity = new Vector3(0, -1.0F * rigidbody.mass, 0);
+
+        /*if (isBucket)
+        {
+            m_GravityFull.y = m_Gravity.y - 4.0F;
+        }*/
+
+        //Debug.Log(name +":" + transform.parent);
+        parentRigidbody = transform.parent.GetComponent<Rigidbody>();
+        parentTransform = transform.parent;
     }
 
     void FixedUpdate()
     {
-        rigidbody.useGravity = true;
-        taken = false;
 
+        // m_IsCursorInObject = GetComponent<Collider>().bounds.Contains(m_Cursor.position);
+
+        //GetComponent<Rigidbody>().useGravity = false;
         if (!m_IsCursorInObject) return;
-               
+
+
+       
         //get buttons states
         bool[] buttons;
         FalconUnity.getFalconButtonStates(0, out buttons);
@@ -58,15 +72,31 @@ public class PrenableObjectOld : MonoBehaviour
         //boutton du milieu => id 0
         if (buttons[0])
         {
-            this.transform.position = m_Cursor.position;
+
+            Vector3 pos = m_Cursor.position;
+            //Debug.Log("avant " + m_Gravity.y);
+            if (isBucket)
+            {
+                pos.y -= 0.4F;//todo scale 
+                // if (GetComponent<Bucket>().isFull)
+                //  m_Gravity = m_GravityFull;
+            }
+            //Debug.Log("qpres " + m_Gravity.y);
+            this.transform.position = pos;
+
             FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime * 2);
-            rigidbody.useGravity = false;
-            taken = true;
+            //GetComponent<Rigidbody>().useGravity = false;
+            parentRigidbody.useGravity = false;
+            transform.SetParent(null);
+            parentTransform.SetParent(transform);
             return;
+
         }
         else
         {
-             rigidbody.useGravity = true;
+            parentTransform.SetParent(null);
+            transform.SetParent(parentTransform);
+            parentRigidbody.useGravity = true;
         }
 
         //Apply force
@@ -92,7 +122,8 @@ public class PrenableObjectOld : MonoBehaviour
         if (collider.CompareTag("Cursor"))
         {
             m_IsCursorInObject = true;
-            GetComponent<Rigidbody>().isKinematic = true;
+            //GetComponent<Rigidbody>().useGravity = false;
+            //GetComponent<Rigidbody>().isKinematic = true;
             
         }
 
@@ -103,7 +134,7 @@ public class PrenableObjectOld : MonoBehaviour
         if (collider.CompareTag("Cursor"))
         {
             m_IsCursorInObject = false;
-            GetComponent<Rigidbody>().isKinematic = false;
+            //GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

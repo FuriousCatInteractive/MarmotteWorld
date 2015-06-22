@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PrenableObject : MonoBehaviour 
+public class PrenableObject : MonoBehaviour
 {
 
     public static Transform cursor
@@ -18,30 +18,28 @@ public class PrenableObject : MonoBehaviour
 
     public AnimationCurve curve;
     public float maxForce = 8.0f;
-    //public float mass = ;
+
 
     private Collider m_Collider;
     private bool m_IsCursorInObject = false;
-    private Vector3 m_Gravity;
+    public Vector3 m_Gravity;
 
     void Awake()
     {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         //rigidbody.useGravity = false;
         m_Collider = GetComponent<Collider>();
-      //  m_Collider.isTrigger = true;
+        //  m_Collider.isTrigger = true;
         Transform playerCursor = cursor;
-        
+
         m_Gravity = new Vector3(0, -0.75f * rigidbody.mass, 0);
     }
 
     void FixedUpdate()
-    {
-       
-
+    {   
         if (!m_IsCursorInObject) return;
 
-        
+
         //get buttons states
         bool[] buttons;
         FalconUnity.getFalconButtonStates(0, out buttons);
@@ -72,7 +70,7 @@ public class PrenableObject : MonoBehaviour
         FalconUnity.applyForce(0, forceVector, Time.fixedDeltaTime);
 
 
-    
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -89,4 +87,3 @@ public class PrenableObject : MonoBehaviour
 
 
 }
-

@@ -15,9 +15,11 @@ public class WaterPipe : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("bucket"))
+        if(other.CompareTag("bucket"))
         {
-            other.GetComponent<Bucket>().EmptyBucket();
+            print("caca");
+            other.GetComponentInChildren<Bucket>().EmptyBucket();
+            //other.GetComponent<Bucket>().EmptyBucket();
         }
         else
         {
