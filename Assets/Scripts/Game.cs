@@ -10,11 +10,13 @@ public class Game : MonoBehaviour {
     // Second riddle
     public GameObject tank;
 
+    public GameObject waterDoor;
+
     int riddle = 0;
 
 	// Use this for initialization
 	void Start () {
-         
+  
 	}
 	
 	// Update is called once per frame
@@ -29,6 +31,11 @@ public class Game : MonoBehaviour {
             case 1:
                 {
                     secondRiddle();
+                    break;
+                }
+            case 2:
+                {
+                    waterDoor.GetComponent<WaterDoor>().openDoor();
                     break;
                 }
             default :
@@ -75,7 +82,7 @@ public class Game : MonoBehaviour {
         {
             print("Second end");
             ++riddle;
-            GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Super ! La posrte est ouverte! Allons dans l'autre salle.", 6.0F);
+            GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Super ! La porte est ouverte! Allons dans l'autre salle.", 6.0F);
            return true;
         }
         else if (tank.GetComponent<WaterPipe>().size > 180)

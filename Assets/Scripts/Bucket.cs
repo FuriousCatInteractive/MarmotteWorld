@@ -30,6 +30,6 @@ public class Bucket : MonoBehaviour {
         isFull = false;
         var tmp = gameObject.GetComponentInChildren<UnityStandardAssets.Water.Water>();
         //tmp.enabled = false;
-//        tmp.GetComponentInParent<MeshRenderer>().enabled = false;
+        tmp.GetComponentInParent<MeshRenderer>().enabled = false;
     }
 }
