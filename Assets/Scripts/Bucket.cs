@@ -5,8 +5,6 @@ public class Bucket : MonoBehaviour {
     public bool isFull = false;
     public float size = 1;
 
-   
-
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +21,7 @@ public class Bucket : MonoBehaviour {
     {
         isFull = true;
         var tmp = gameObject.GetComponentInChildren<UnityStandardAssets.Water.Water>();
-        tmp.enabled = true;
+        //tmp.enabled = true;
         tmp.GetComponentInParent<MeshRenderer>().enabled = true;
     }
 
@@ -31,7 +29,7 @@ public class Bucket : MonoBehaviour {
     {
         isFull = false;
         var tmp = gameObject.GetComponentInChildren<UnityStandardAssets.Water.Water>();
-        tmp.enabled = false;
+        //tmp.enabled = false;
         tmp.GetComponentInParent<MeshRenderer>().enabled = false;
     }
 }

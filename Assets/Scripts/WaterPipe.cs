@@ -2,25 +2,29 @@
 using System.Collections;
 
 public class WaterPipe : MonoBehaviour {
-    public int size;
+    public float size;
 
 	// Use this for initialization
 	void Start () {
-	
+        size = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+       
 	}
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("bucket"))
         {
-            print("caca");
-            other.GetComponentInChildren<Bucket>().EmptyBucket();
-            //other.GetComponent<Bucket>().EmptyBucket();
+            var tmp = other.GetComponentInChildren<Bucket>();
+            if (tmp.isFull)
+            {
+                size += tmp.size;
+                other.GetComponentInChildren<Bucket>().EmptyBucket();
+                print(size);
+            } 
         }
         else
         {
