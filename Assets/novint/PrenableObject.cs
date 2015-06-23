@@ -47,6 +47,7 @@ public class PrenableObject : MonoBehaviour
         //boutton du milieu => id 0
         if (buttons[0])
         {
+            GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("caca", 6.0F);
             this.transform.position = m_Cursor.position;
             FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime * 2);
             GetComponent<Rigidbody>().useGravity = false;
