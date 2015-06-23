@@ -61,6 +61,7 @@ public class Game : MonoBehaviour {
         if (firstPipe.GetComponent<MeshRenderer>().enabled && secondPipe.GetComponent<MeshRenderer>().enabled)
         {
             print("First end");
+            GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Bien joué ! Maintenant il faut remplir le réservoir de 450L à 40% avec les seaux d'eau, cela permettera d'ouvrir la porte hydrolique.", 10.0F);            
             ++riddle;
             return true;
         }
@@ -74,7 +75,8 @@ public class Game : MonoBehaviour {
         {
             print("Second end");
             ++riddle;
-            return true;
+            GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Super ! La posrte est ouverte! Allons dans l'autre salle.", 6.0F);
+           return true;
         }
         else if (tank.GetComponent<WaterPipe>().size > 180)
         {
