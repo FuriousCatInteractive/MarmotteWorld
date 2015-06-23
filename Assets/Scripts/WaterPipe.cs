@@ -30,7 +30,7 @@ public class WaterPipe : MonoBehaviour {
                 print("augmentation = " + size * 2.2f / 450f);
                 test = size * 2.2 / 450;
                 Debug.Log(test);
-                water.transform.Translate(new Vector3(0f, size * 2.2f / 450f, 0f));
+                water.transform.Translate(new Vector3(0f, size * 1 / 450f, 0f));
                 print(size);
             } 
         }
@@ -42,7 +42,8 @@ public class WaterPipe : MonoBehaviour {
 
     public void emptyTank()
     {
+        GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Oh non! Tu as mis trop d'eau dans le réservoir, du coup il s'est vidé! ", 6.0F);
         size = 0;
-        water.transform.Translate(minPosition);
+        water.transform.Translate(minPosition - water.transform.localPosition);
     }
 }
