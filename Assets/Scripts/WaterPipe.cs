@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class WaterPipe : MonoBehaviour {
+    public int size;
 
 	// Use this for initialization
 	void Start () {
@@ -25,5 +26,10 @@ public class WaterPipe : MonoBehaviour {
         {
             print("Test");
         }
+    }
+
+    public void emptyTank()
+    {
+        size = 0;
     }
 }
