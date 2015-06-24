@@ -16,6 +16,8 @@ public class PrenableObject : MonoBehaviour
 
     private static Transform m_Cursor = null;
 
+    public bool isHeld { get; private set; }
+
     public AnimationCurve curve;
     public float maxForce = 8.0f;
     public Vector3 m_Gravity;
@@ -40,7 +42,7 @@ public class PrenableObject : MonoBehaviour
     {   
         if (!m_IsCursorInObject) return;
 
-        //m_GlowScript.Glow = m_Collider.bounds.Contains(m_Cursor.position);
+        m_GlowScript.Glow = m_Collider.bounds.Contains(m_Cursor.position);
 
         //get buttons states
         bool[] buttons;
@@ -49,12 +51,16 @@ public class PrenableObject : MonoBehaviour
         //boutton du milieu => id 0
         if (buttons[0])
         {
-           
             this.transform.position = m_Cursor.position;
             FalconUnity.applyForce(0, m_Gravity, Time.fixedDeltaTime * 2);
             GetComponent<Rigidbody>().useGravity = false;
+            isHeld = true;
+
             return;
         }
+        else
+            isHeld = false;
+
         GetComponent<Rigidbody>().useGravity = true;
 
         //Apply force
