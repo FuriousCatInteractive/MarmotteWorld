@@ -18,8 +18,8 @@ public class BucketWeight : MonoBehaviour {
         bucketScript = GetComponentInChildren<Bucket>();
         prenableScript = GetComponent<PrenableObject>();
         size = transform.localScale.y;
-        gravityEmpty = new Vector3(0, -2.2F * size, 0);
-        gravityFull  = new Vector3(0, -7.0F * size, 0);
+        gravityEmpty = new Vector3(0, -3.0F * size, 0);
+        gravityFull  = new Vector3(0, -5.4F * size, 0);
 
         Debug.Log(name + "--> " + prenableScript.m_Gravity);
 	}

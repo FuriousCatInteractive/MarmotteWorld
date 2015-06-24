@@ -22,7 +22,7 @@ public class BinaryDetector : MonoBehaviour {
         }
         else
         {
-            print("Test");
+//            print("Test");
         }
     }
 
