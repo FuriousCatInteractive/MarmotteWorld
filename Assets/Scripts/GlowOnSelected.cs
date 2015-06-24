@@ -17,14 +17,14 @@ public class GlowOnSelected : MonoBehaviour {
 
     void Awake()
     {
-        //m_Transform = transform;
-        //m_Mesh = GetComponent<MeshFilter>().sharedMesh;
-        //Camera.onPostRender += MyPostRender;
+        m_Transform = transform;
+        m_Mesh = GetComponent<MeshFilter>().sharedMesh;
+        Camera.onPostRender += MyPostRender;
     }
 
     void OnDestroy()
     {
-        //Camera.onPostRender -= MyPostRender;
+        Camera.onPostRender -= MyPostRender;
     }
 
     void MyPostRender(Camera camera)
