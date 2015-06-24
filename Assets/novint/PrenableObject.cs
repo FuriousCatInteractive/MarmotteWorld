@@ -18,11 +18,11 @@ public class PrenableObject : MonoBehaviour
 
     public AnimationCurve curve;
     public float maxForce = 8.0f;
-
+    public Vector3 m_Gravity;
 
     private Collider m_Collider;
     private bool m_IsCursorInObject = false;
-    public Vector3 m_Gravity;
+    private GlowOnSelected m_GlowScript;
 
     void Awake()
     {
@@ -33,12 +33,14 @@ public class PrenableObject : MonoBehaviour
         Transform playerCursor = cursor;
 
         m_Gravity = new Vector3(0, -0.75f * rigidbody.mass, 0);
+        m_GlowScript = GetComponentInChildren<GlowOnSelected>();
     }
 
     void FixedUpdate()
     {   
         if (!m_IsCursorInObject) return;
 
+        //m_GlowScript.Glow = m_Collider.bounds.Contains(m_Cursor.position);
 
         //get buttons states
         bool[] buttons;
@@ -69,21 +71,23 @@ public class PrenableObject : MonoBehaviour
         Vector3 forceVector = direction.normalized * -force;
         //Debug.DrawLine(cursor.position, cursor.position + forceVector);
         FalconUnity.applyForce(0, forceVector, Time.fixedDeltaTime);
-
-
-
     }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Cursor"))
+        {
             m_IsCursorInObject = true;
+        }
     }
 
     void OnTriggerExit(Collider collider)
     {
         if (collider.CompareTag("Cursor"))
+        {
             m_IsCursorInObject = false;
+
+        }
     }
 
 
