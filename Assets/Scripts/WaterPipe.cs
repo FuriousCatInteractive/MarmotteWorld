@@ -6,6 +6,7 @@ public class WaterPipe : MonoBehaviour {
     public GameObject water;
     private Vector3 minPosition;
     public double test = 0;
+    public AudioClip emptySound;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,7 @@ public class WaterPipe : MonoBehaviour {
             {
                 size += tmp.size;
                 other.GetComponentInChildren<Bucket>().EmptyBucket();
-                print("augmentation = " + size * 2.2f / 450f);
+                GetComponent<AudioSource>().PlayOneShot(emptySound);
                 test = size * 2.2 / 450;
                 Debug.Log(test);
                 water.transform.Translate(new Vector3(0f, size * 1 / 450f, 0f));

@@ -10,9 +10,12 @@ public class marmotteSpeak : MonoBehaviour {
     private Canvas canvas;
     private float cpt;
 
+    public AudioClip nekoNya;
+
 	// Use this for initialization
 	void Start () {
         cpt = 0.0F;
+        GetComponent<AudioSource>().PlayOneShot(nekoNya);
         canvas = GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<Canvas>();
         //canvas.enabled = false;
  	}
@@ -35,6 +38,8 @@ public class marmotteSpeak : MonoBehaviour {
     {
         reinitialiseCpt();
         canvas.enabled = true;
+        Debug.Log("coucou");
+        GetComponent<AudioSource>().PlayOneShot(nekoNya);
         GameObject.FindGameObjectWithTag("marmotteText").GetComponent<Text>().text = text;
         timeShown = time;
     }

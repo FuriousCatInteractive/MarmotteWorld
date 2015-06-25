@@ -39,8 +39,12 @@ public class PrenableObject : MonoBehaviour
     }
 
     void FixedUpdate()
-    {   
-        if (!m_IsCursorInObject) return;
+    {
+        if (!m_IsCursorInObject)
+        {
+            m_GlowScript.Glow = false;
+            return;
+        }
 
         m_GlowScript.Glow = m_Collider.bounds.Contains(m_Cursor.position);
 
