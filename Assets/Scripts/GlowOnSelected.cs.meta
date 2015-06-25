@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 9b1fddb408c986a4cbccffdcd69a7940
-timeCreated: 1435094666
+timeCreated: 1435183158
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - glowMaterial: {fileID: 2100000, guid: 42b4e95481b74194eb20348a103d84db, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
