@@ -16,7 +16,8 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-  
+        GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Salut! Je suis Fluffy la marmotte, je vais t'aider à t'échapper d'ici. Commence par réparer les tuyaux avec ceux posés à côté. La longueur à réparer est de 4/9.", 10.0F);            
+           
 	}
 	
 	// Update is called once per frame
@@ -35,7 +36,7 @@ public class Game : MonoBehaviour {
                 }
             case 2:
                 {
-                    waterDoor.GetComponent<WaterDoor>().openDoor();
+                    thirdRiddle();
                     break;
                 }
             default :
@@ -83,11 +84,24 @@ public class Game : MonoBehaviour {
             print("Second end");
             ++riddle;
             GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Super ! La porte est ouverte! Allons dans l'autre salle.", 6.0F);
+            waterDoor.GetComponent<WaterDoor>().openDoor();
            return true;
         }
         else if (tank.GetComponent<WaterPipe>().size > 180)
         {
             tank.GetComponent<WaterPipe>().emptyTank();
+        }
+        return false;
+    }
+
+    bool thirdRiddle()
+    {
+        BridgeScript script = GameObject.FindGameObjectWithTag("MovableBridge").GetComponentInChildren<BridgeScript>();
+        if(script.poidsSurPont == script.poidsCorrect )
+        {
+            print("Third end");
+            ++riddle;
+            GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Nickel!! On peut maintenant traverser le pont!!", 6.0F);
         }
         return false;
     }

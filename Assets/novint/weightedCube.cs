@@ -11,9 +11,9 @@ public class weightedCube : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-        rigidbody = GetComponent<Rigidbody>();
-        bridge = GameObject.FindGameObjectWithTag("MovableBridge").GetComponent<BridgeScript>();
-        springedBody = GameObject.FindGameObjectWithTag("MovableBridge").GetComponent<FalconSpringedBody>(); 
+       // rigidbody = GetComponent<Rigidbody>();
+       // bridge = GameObject.FindGameObjectWithTag("MovableBridge").GetComponent<BridgeScript>();
+       // springedBody = GameObject.FindGameObjectWithTag("MovableBridge").GetComponent<FalconSpringedBody>(); 
 	}
 	
 	// Update is called once per frame

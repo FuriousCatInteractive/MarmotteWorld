@@ -4,10 +4,11 @@ using System.Collections;
 public class fluffyBox : MonoBehaviour {
 
     public string text;
+    private bool playOnce;
 
 	// Use this for initialization
 	void Start () {
-       // text = "caca";
+        playOnce = true;
 	
 	}
 	
@@ -18,9 +19,9 @@ public class fluffyBox : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && playOnce)
         {
+            playOnce = false;
             GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays(text, 10.0F);            
            
         }
