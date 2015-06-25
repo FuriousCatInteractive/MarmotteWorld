@@ -5,6 +5,8 @@ public class InvisiblePipe : MonoBehaviour {
     public int numerator;
     public int denominator;
 
+    public AudioClip pipeSound;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -21,6 +23,7 @@ public class InvisiblePipe : MonoBehaviour {
         {
             GetComponent<MeshRenderer>().enabled = true;
             GameObject.Destroy(other.gameObject);
+            GetComponent<AudioSource>().PlayOneShot(pipeSound);
         }
         else
         {
