@@ -7,6 +7,7 @@ public class WaterPipe : MonoBehaviour {
     private Vector3 minPosition;
     public double test = 0;
     public AudioClip emptySound;
+    public AudioClip emptyTankSound;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,7 @@ public class WaterPipe : MonoBehaviour {
 
     public void emptyTank()
     {
+        GetComponent<AudioSource>().PlayOneShot(emptyTankSound);
         GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Oh non! Tu as mis trop d'eau dans le réservoir, du coup il s'est vidé! ", 6.0F);
         size = 0;
         water.transform.Translate(minPosition - water.transform.localPosition);

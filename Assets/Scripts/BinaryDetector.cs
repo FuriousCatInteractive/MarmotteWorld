@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BinaryDetector : MonoBehaviour {
     public bool activate = false;
+    public AudioClip cubeSound;
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +15,14 @@ public class BinaryDetector : MonoBehaviour {
         
 	}
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("binaryCube")) 
         {
+            if (!activate)
+            {
+                GetComponent<AudioSource>().PlayOneShot(cubeSound);
+            }
             activate = true;
         }
         else
@@ -26,15 +31,12 @@ public class BinaryDetector : MonoBehaviour {
         }
     }
 
-    void OnCollisionStay(Collision collisionInfo)
+    void OnTriggerExit(Collider other)
     {
-        if (true)
+        if (other.CompareTag("binaryCube"))
         {
-            activate = true;
+            activate = false;
         }
-        else
-        {
-            print("Test");
-        }  
     }
+
 }

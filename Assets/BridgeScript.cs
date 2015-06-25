@@ -39,7 +39,7 @@ public class BridgeScript : MonoBehaviour {
         if (collider.CompareTag("weightedCube"))
         {
             //Debug.Log("---------->poids en + " + collider.GetComponent<Rigidbody>().mass);
-            poidsSurPont += collider.GetComponent<Rigidbody>().mass/2;
+            poidsSurPont += collider.GetComponent<PrenableObject>().massCube/2;
             collider.GetComponent<Rigidbody>().useGravity = false;
             collider.transform.SetParent(bridgeTransform);
             UpdateTargetHeight();
@@ -51,7 +51,7 @@ public class BridgeScript : MonoBehaviour {
         if (collider.CompareTag("weightedCube"))
         {
             //Debug.Log("---------->poids en moim=ns " + collider.GetComponent<Rigidbody>().mass);
-            poidsSurPont -= collider.GetComponent<Rigidbody>().mass/2;
+            poidsSurPont -= collider.GetComponent<PrenableObject>().massCube/2;
 
             collider.transform.SetParent(null);
 

@@ -12,6 +12,8 @@ public class Game : MonoBehaviour {
 
     public GameObject waterDoor;
 
+    public Collider thirdRiddleBlocker;
+
     int riddle = 0;
 
 	// Use this for initialization
@@ -97,11 +99,13 @@ public class Game : MonoBehaviour {
     bool thirdRiddle()
     {
         BridgeScript script = GameObject.FindGameObjectWithTag("MovableBridge").GetComponentInChildren<BridgeScript>();
+        Debug.Log("pois sur pont " + script.poidsSurPont + " poid s correc " + script.poidsCorrect);
         if(script.poidsSurPont == script.poidsCorrect )
         {
             print("Third end");
             ++riddle;
             GameObject.FindGameObjectWithTag("marmotteUI").GetComponent<marmotteSpeak>().marmotteSays("Nickel!! On peut maintenant traverser le pont!!", 6.0F);
+            thirdRiddleBlocker.enabled = false;
         }
         return false;
     }

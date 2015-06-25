@@ -26,6 +26,9 @@ public class PrenableObject : MonoBehaviour
     private bool m_IsCursorInObject = false;
     private GlowOnSelected m_GlowScript;
 
+    // Mass of the cubes in the third riddle
+    public float massCube;
+
     void Awake()
     {
         Rigidbody rigidbody = GetComponent<Rigidbody>();

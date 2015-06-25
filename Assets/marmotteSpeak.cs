@@ -30,7 +30,7 @@ public class marmotteSpeak : MonoBehaviour {
             canvas.enabled = false;
         }
 
-         bool[] buttons;
+        bool[] buttons;
         FalconUnity.getFalconButtonStates(0, out buttons);
 
         //boutton du milieu => id 0

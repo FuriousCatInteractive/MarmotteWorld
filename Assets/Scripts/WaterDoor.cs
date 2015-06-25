@@ -5,6 +5,7 @@ public class WaterDoor : MonoBehaviour {
 
     bool isOpen = false;
     private Animation anim;
+    public AudioClip doorSound;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class WaterDoor : MonoBehaviour {
     {
         if (!isOpen)
         {
+            GetComponent<AudioSource>().PlayOneShot(doorSound);
             anim.Play("open");
             isOpen = true;
         }
