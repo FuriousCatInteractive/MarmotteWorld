@@ -41,7 +41,7 @@ This game use a HMD (Head-Mounted Display, the Oculus Rift DK2) and an haptic ar
 
 2. Download and install the [Oculus Runtime for Windows](https://developer.oculus.com/downloads/).
 
-3. Download and run the [UnityFalcon](https://github.com/kbogert/falconunity/releases) server to make the haptic harm communicate with Unity.
+3. Download and run the [UnityFalcon server](https://github.com/kbogert/falconunity/releases) to make the haptic arm communicate with Unity.
 
 4. Build with Unity and run the ```directToRift``` executable.
 
