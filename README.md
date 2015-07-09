@@ -49,6 +49,10 @@ This game use a HMD (Head-Mounted Display, the Oculus Rift DK2) and an haptic ar
 
 ![capture oculue](pictures/capture-oculus.png)
 
+##Gameplay
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oq7FxAcPToM" frameborder="0" allowfullscreen></iframe>
+
 ##Note
 
 Assets used for the game where finded on the [Unity Asset Store](https://www.assetstore.unity3d.com/en/?gclid=CKG8jvbktcYCFYU6aQodC44OLA#!/home) and the marmot 
