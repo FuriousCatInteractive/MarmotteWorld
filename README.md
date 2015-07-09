@@ -51,7 +51,9 @@ This game use a HMD (Head-Mounted Display, the Oculus Rift DK2) and an haptic ar
 
 ##Gameplay
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oq7FxAcPToM" frameborder="0" allowfullscreen></iframe>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=oq7FxAcPToM
+" target="_blank"><img src="http://img.youtube.com/vi/oq7FxAcPToM/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ##Note
 
