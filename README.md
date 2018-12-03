@@ -1,4 +1,4 @@
-#Marmotte World
+# Marmotte World
 
 A serious game made with Unity3D (5.1) for the Virtual Reality course at UQAC (prof: M. MENELAS).
 
@@ -10,7 +10,7 @@ A serious game made with Unity3D (5.1) for the Virtual Reality course at UQAC (p
 * Taiki HAGIWARA
 * Corentin RAOULT
 
-##Story
+## Story
 
 You were in jail of a mad scientist but managed to escape and now you are in sewers.
 But it's dangerous to go alone, you are accompanied with Fluffy, a marmot who can speak due to expermiments of the mad scientist.
@@ -20,7 +20,7 @@ To go outside you have to success in different puzzles with math.
 
 This game use a HMD (Head-Mounted Display, the Oculus Rift DK2) and an haptic arm (the Novint Falcon), we used 3D sound too, so for a better experience, we suggest having a headset.
 
-##Controls
+## Controls
 
 * Keyboard
 	* W : go forwad
@@ -45,11 +45,11 @@ This game use a HMD (Head-Mounted Display, the Oculus Rift DK2) and an haptic ar
 
 4. Build with Unity and run the ```directToRift``` executable.
 
-##Screenshots
+## Screenshots
 
 ![capture oculue](pictures/capture-oculus.png)
 
-##Gameplay Videos
+## Gameplay Videos
 
 <div style="text-align:center" markdown="1">
 
@@ -64,7 +64,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 </div>
 
 
-##Note
+## Note
 
 Assets used for the game where finded on the [Unity Asset Store](https://www.assetstore.unity3d.com/en/?gclid=CKG8jvbktcYCFYU6aQodC44OLA#!/home) and the marmot 
 picture is from [ZeMarmot project](http://film.zemarmot.net/fr/). 
