@@ -4,7 +4,7 @@ A serious game made with Unity3D (5.1) for the Virtual Reality course at UQAC (p
 
 ![logo](pictures/logo.png)
 
-##Authors
+## Authors
 
 * Steven GERARD
 * Taiki HAGIWARA
