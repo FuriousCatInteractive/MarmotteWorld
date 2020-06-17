@@ -16,7 +16,7 @@ You were in jail of a mad scientist but managed to escape and now you are in sew
 But it's dangerous to go alone, you are accompanied with Fluffy, a marmot who can speak due to expermiments of the mad scientist.
 To go outside you have to success in different puzzles with math.
 
-##Virtual Reality
+## Virtual Reality
 
 This game use a HMD (Head-Mounted Display, the Oculus Rift DK2) and an haptic arm (the Novint Falcon), we used 3D sound too, so for a better experience, we suggest having a headset.
 
